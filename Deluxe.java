@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
  *
  * @author Tommy Cho, Neha Gudur
  */
-public class Deluxe extends Pizza{
+public class Deluxe extends Pizza {
 
     private static final double deluxeBasePrice = 12.99;
     private static final int deluxeBaseToppings = 5;
@@ -18,17 +18,18 @@ public class Deluxe extends Pizza{
 
     /**
      * The method to determine the price of a deluxe pizza.
+     *
      * @return price of the pizza in double form.
      */
-    public double price(){
+    public double price() {
         double price = deluxeBasePrice;
-        if (toppings.size() > deluxeBaseToppings){
+        if (toppings.size() > deluxeBaseToppings) {
             price = price + ((toppings.size() - deluxeBaseToppings) * toppingIncrement);
         }
-        if (this.size == Size.Medium){
+        if (this.size == Size.Medium) {
             price = price + sizeIncrement;
         }
-        if (this.size == Size.Large){
+        if (this.size == Size.Large) {
             price = price + sizeIncrement + sizeIncrement;
         }
         return price;
@@ -36,20 +37,20 @@ public class Deluxe extends Pizza{
 
     /**
      * The print method for an instance of deluxe pizza.
+     *
      * @return the details of this deluxe pizza in String form
      */
-    public String printPizza(){
+    public String printPizza() {
         DecimalFormat dec = new DecimalFormat("#0.00");
         dec.setGroupingUsed(true);
         dec.setGroupingSize(3);
         StringBuilder str = new StringBuilder();
         str.append(this.size.pizzaSizeString() + " Deluxe Pizza - Toppings: ");
-        if (toppings.isEmpty()){
+        if (toppings.isEmpty()) {
             str.append("None");
-        }
-        else{
+        } else {
             str.append(toppings.get(0));
-            for (int i = 1; i < toppings.size(); i++){
+            for (int i = 1; i < toppings.size(); i++) {
                 str.append(", " + toppings.get(i));
             }
         }
