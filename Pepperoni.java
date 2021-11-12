@@ -1,7 +1,13 @@
 package sample;
 
 import java.lang.StringBuilder;
+import java.text.DecimalFormat;
 
+/**
+ * The Pepperoni class that extends the Pizza class and holds relevant information for pepperoni pizas.
+ *
+ * @author Tommy Cho, Neha Gudur
+ */
 public class Pepperoni extends Pizza{
 
     private static final double pepperoniBasePrice = 8.99;
@@ -33,6 +39,9 @@ public class Pepperoni extends Pizza{
      * @return the details of this pepperoni pizza in String form
      */
     public String printPizza(){
+        DecimalFormat dec = new DecimalFormat("#0.00");
+        dec.setGroupingUsed(true);
+        dec.setGroupingSize(3);
         StringBuilder str = new StringBuilder();
         str.append(this.size.pizzaSizeString() + " Pepperoni Pizza - Toppings: ");
         if (toppings.isEmpty()){
@@ -44,27 +53,29 @@ public class Pepperoni extends Pizza{
                 str.append(", " + toppings.get(i));
             }
         }
-        str.append(" - Subtotal: $" + this.price());
+        str.append(" - Subtotal: $" + dec.format(this.price()));
         return str.toString();
     }
 
-    public static void main(String[]args){
-        Pizza test = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
-        System.out.println(test.printPizza()); //default pizza
-        test.addTopping("Pineapple"); //add pineapple topping
-        test.addTopping("Pineapple"); //add pineapple topping (should return error msg)
-        System.out.println(test.printPizza()); //print pepperoni pizza with pineapple
-        test.increaseSize(); //increase size to medium
-        System.out.println(test.printPizza()); //print medium pepperoni pizza w pineapple
-        test.increaseSize(); //increase size to large
-        System.out.println(test.printPizza()); //print large pepperoni pizza w pineapple
-        test.decreaseSize(); //decrease size to medium
-        System.out.println(test.printPizza()); //print medium pepperoni pizza w pineapple
-        test.decreaseSize(); //decrease size to small
-        test.decreaseSize(); //decrease size (should return error msg)
-        test.removeTopping("Pineapple"); //remove pineapple
-        test.removeTopping("Pineapple"); //remove pineapple (should return error msg)
-        test.removeTopping("Pepperoni"); //remove pepperoni
-        System.out.println(test.printPizza()); //print small pepperoni pizza without pepperoni but same base price
+    public static void main(String[]args){ //testbed main
+        Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
+        System.out.println(pizza1.printPizza()); //default pizza
+        pizza1.addTopping("Pineapple"); //add pineapple topping
+        pizza1.addTopping("Pineapple"); //add pineapple topping (should return error msg)
+        System.out.println(pizza1.printPizza()); //print pepperoni pizza with pineapple
+        pizza1.increaseSize(); //increase size to medium
+        System.out.println(pizza1.printPizza()); //print medium pepperoni pizza w pineapple
+        pizza1.increaseSize(); //increase size to large
+        System.out.println(pizza1.printPizza()); //print large pepperoni pizza w pineapple
+        pizza1.decreaseSize(); //decrease size to medium
+        System.out.println(pizza1.printPizza()); //print medium pepperoni pizza w pineapple
+        pizza1.decreaseSize(); //decrease size to small
+        pizza1.decreaseSize(); //decrease size (should return error msg)
+        pizza1.removeTopping("Pineapple"); //remove pineapple
+        pizza1.removeTopping("Pineapple"); //remove pineapple (should return error msg)
+        pizza1.removeTopping("Pepperoni"); //remove pepperoni
+        System.out.println(pizza1.printPizza()); //print small pepperoni pizza without pepperoni but same base price
+        pizza1.addTopping("Pepperoni"); //add pepperoni
+        System.out.println(pizza1.showAvailableToppings()); //shows available toppings for pizza (should be all but pepperoni)
     }
 }
