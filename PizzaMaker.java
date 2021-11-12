@@ -1,5 +1,10 @@
 package sample;
 
+/**
+ * The PizzaMaker class that instantiates a pizza depending on a chosen flavor
+ * Flavors are: Pepperoni, Hawaiian, Deluxe (case sensitive)
+ * @author Tommy Cho, Neha Gudur
+ */
 //create an instance of subclasses based on the chosen flavor
 public class PizzaMaker {
 
@@ -8,6 +13,11 @@ public class PizzaMaker {
     private static final double hawaiianBasePrice = 10.99;
     private static final double deluxeBasePrice = 12.99;
 
+    /**
+     * A method that instantiates a pizza.
+     * @param flavor flavor of pizza being created
+     * @return pizza that was made
+     */
     public static Pizza createPizza(String flavor) {
         if (flavor.equals("Pepperoni") || flavor.equals("pepperoni")){
             Pepperoni pizza = new Pepperoni();
