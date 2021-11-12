@@ -2,6 +2,7 @@ package sample;
 
 /**
  * The Size enum class that holds the three sizes of pizza.
+ *
  * @author Tommy Cho, Neha Gudur
  */
 public enum Size {
@@ -9,16 +10,15 @@ public enum Size {
 
     /**
      * A method that returns the size of the pizza in String form
+     *
      * @return size of Pizza in String form
      */
-    public String pizzaSizeString(){
-        if (this == Small){
+    public String pizzaSizeString() {
+        if (this == Small) {
             return "Small";
-        }
-        else if (this == Medium){
+        } else if (this == Medium) {
             return "Medium";
-        }
-        else{
+        } else {
             return "Large";
         }
     }
