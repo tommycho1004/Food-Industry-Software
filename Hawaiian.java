@@ -3,6 +3,11 @@ package sample;
 import java.lang.StringBuilder;
 import java.text.DecimalFormat;
 
+/**
+ * The Hawaiian class that extends the Pizza class and holds relevant information for hawaiian pizzas.
+ *
+ * @author Tommy Cho, Neha Gudur
+ */
 public class Hawaiian extends Pizza{
 
     private static final double hawaiianBasePrice = 10.99;
