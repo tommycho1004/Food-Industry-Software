@@ -9,6 +9,7 @@ import java.util.ArrayList;
 /**
  * The StoreOrders class that holds a list of all orders the store has taken
  * This class can export store orders into another text file with export()
+ *
  * @author Tommy Cho, Neha Gudur
  */
 
@@ -17,21 +18,22 @@ public class StoreOrders {
 
     /**
      * A method to add an order to the list of orders
+     *
      * @param order order that is being added
      */
-    private void addOrder(Order order){
+    private void addOrder(Order order) {
         orders.add(order);
     }
 
     /**
      * A method to remove an order from the list of orders
+     *
      * @param orderIndex index of the order being removed in the list
      */
-    private void removeOrder(int orderIndex){
-        if (orders.isEmpty()){
+    private void removeOrder(int orderIndex) {
+        if (orders.isEmpty()) {
             System.out.println("There are no orders to show!");
-        }
-        else{
+        } else {
             orders.remove(orderIndex);
             System.out.println("Order cancelled.");
         }
@@ -39,22 +41,23 @@ public class StoreOrders {
 
     /**
      * A method to print the orders in the list.
+     *
      * @return list of orders in String form
      */
-    private String printOrders(){
+    private String printOrders() {
         DecimalFormat dec = new DecimalFormat("#0.00");
         dec.setGroupingUsed(true);
         dec.setGroupingSize(3);
         int indexFixer = 1;
         StringBuilder str = new StringBuilder();
         str.append("List of Orders:\n");
-        for (int i = 0; i < orders.size(); i++){
+        for (int i = 0; i < orders.size(); i++) {
             str.append(orders.get(i).printOrder() + "\n");
         }
         return str.toString();
     }
 
-    private void export(){
+    private void export() {
         File myObj = new File("StoreOrders.txt");
         try {
             FileWriter myWriter = new FileWriter("filename.txt");
@@ -66,7 +69,7 @@ public class StoreOrders {
         }
     }
 
-    public static void main(String[]args){ //testbed main
+    public static void main(String[] args) { //testbed main
         Order order1 = new Order(); //create new order
         order1.setPhoneNumber(7323369471L); //set phone number identifier
         Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
