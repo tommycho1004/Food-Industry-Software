@@ -1,6 +1,7 @@
 package sample;
 
 import java.lang.StringBuilder;
+import java.text.DecimalFormat;
 
 public class Hawaiian extends Pizza{
 
@@ -33,6 +34,9 @@ public class Hawaiian extends Pizza{
      * @return the details of this hawaiian pizza in String form
      */
     public String printPizza(){
+        DecimalFormat dec = new DecimalFormat("#0.00");
+        dec.setGroupingUsed(true);
+        dec.setGroupingSize(3);
         StringBuilder str = new StringBuilder();
         str.append(this.size.pizzaSizeString() + " Hawaiian Pizza - Toppings: ");
         if (toppings.isEmpty()){
@@ -44,7 +48,7 @@ public class Hawaiian extends Pizza{
                 str.append(", " + toppings.get(i));
             }
         }
-        str.append(" - Subtotal: $" + this.price());
+        str.append(" - Subtotal: $" + dec.format(this.price()));
         return str.toString();
     }
 
