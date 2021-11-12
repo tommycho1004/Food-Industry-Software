@@ -4,7 +4,9 @@ import java.lang.StringBuilder;
 import java.text.DecimalFormat;
 
 /**
+ * The Deluxe class that extends the Pizza class and holds relevant information for deluxe pizzas.
  *
+ * @author Tommy Cho, Neha Gudur
  */
 public class Deluxe extends Pizza{
 
