@@ -3,6 +3,12 @@ package sample;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
+/**
+ * The Order class that allows the user to add, remove, and edit pizzas for an order
+ *
+ * @author Tommy Cho, Neha Gudur
+ */
 public class Order {
 
     private Long phoneNumber;
@@ -10,6 +16,7 @@ public class Order {
 
     /**
      * Setter method for phone number
+     *
      * @param phoneNumber number that is being set
      */
     public void setPhoneNumber(Long phoneNumber) {
@@ -18,13 +25,14 @@ public class Order {
 
     /**
      * Getter method for phone number
+     *
      * @return phone number of instance
      */
     public Long getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public ArrayList<Pizza> getPizzas(){
+    public ArrayList<Pizza> getPizzas() {
         return this.pizzas;
     }
 
@@ -54,6 +62,7 @@ public class Order {
 
     /**
      * A method that calculates the order's total
+     *
      * @return total price of the order
      */
     private double getOrderTotal() {
@@ -66,13 +75,14 @@ public class Order {
 
     /**
      * A method that calculates the order's tax
+     *
      * @return tax of the order
      */
     private double getTax() {
         return this.getOrderTotal() * 0.0625;
     }
 
-    public double getGrandTotal(){
+    public double getGrandTotal() {
         return (this.getOrderTotal() + this.getTax());
     }
 
