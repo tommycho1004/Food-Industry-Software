@@ -1,4 +1,4 @@
-package sample;
+package com.example.demo;
 
 import java.util.ArrayList;
 
@@ -54,14 +54,14 @@ public abstract class Pizza {
 
         if (this.toppings.size() < 7) {
             if (this.toppings.contains(toppingConverter(topping))) {
-                System.out.println("Topping is already included!");
+                //System.out.println("Topping is already included!");
             } else {
                 this.toppings.add(toppingConverter(topping));
                 //price = price + toppingIncrement;
-                System.out.println("Topping added");
+                //System.out.println("Topping added");
             }
         } else {
-            System.out.println("Maximum number of toppings reached!");
+            //System.out.println("Maximum number of toppings reached!");
         }
     }
 
@@ -73,14 +73,10 @@ public abstract class Pizza {
      * @param topping topping that is being removed.
      */
     public void removeTopping(String topping) {
-        if (this.toppings.isEmpty()) {
-            System.out.println("No toppings on the pizza!");
-        } else if (!this.toppings.contains(toppingConverter(topping))) {
-            System.out.println("This topping is not on the pizza!");
-        } else {
+        if (!this.toppings.isEmpty() && !this.toppings.contains(toppingConverter(topping))) {
             this.toppings.remove(toppingConverter(topping));
             //price = price - toppingIncrement;
-            System.out.println("Topping removed");
+            //System.out.println("Topping removed");
         }
     }
 
