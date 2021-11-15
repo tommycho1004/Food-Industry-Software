@@ -1,118 +1,37 @@
+package com.example.demo;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class MainMenuController implements Initializable {
+public class StoreOrdersController {
 
     @FXML
-    private Button checkCurrentOrder;
+    private Button cancelOrderButton;
 
     @FXML
-    private Button createNewOrderButton;
+    private Button exportOrders;
 
     @FXML
-    private MenuItem deluxeButton;
+    private TextField orderTotal;
 
     @FXML
-    private Button enterNumberButton;
+    private MenuButton phoneMenu;
 
     @FXML
-    private VBox enterNumberText;
+    private ListView<?> storeOrdersList;
 
     @FXML
-    private MenuItem hawaiianButton;
-
-    @FXML
-    private AnchorPane mainChangeSize;
-
-    @FXML
-    private Button manageStoreOrders;
-
-    @FXML
-    private TextField numberEnter;
-
-    @FXML
-    private MenuItem pepperoniButton;
-
-    @FXML
-    private VBox workingText;
-
-    boolean numberChecker() {
-        String phone = numberEnter.getText();
-        if (!phone.isEmpty()) {
-            try {
-                int phoneNum = Integer.parseInt(numberEnter.getText());
-            } catch (NumberFormatException e) {
-                numberEnter.setPromptText("Not a valid number");
-                numberEnter.clear();
-                return false;
-            }
-            if (phone.length() == 10) {
-                return true;
-            } else {
-                numberEnter.setPromptText("Not a valid number");
-                numberEnter.clear();
-                return false;
-            }
-        } else {
-            numberEnter.setPromptText("Not a valid number");
-            numberEnter.clear();
-            return false;
-        }
-    }
-
-    @FXML
-    void checkCurrentOrderClick(ActionEvent event) {
+    void cancelOrderButtonClick(ActionEvent event) {
 
     }
 
     @FXML
-    void createNewOrderButtonClick(ActionEvent event) throws IOException {
-        enterNumberText.setVisible(true);
-    }
+    void exportOrdersClick(ActionEvent event) {
 
-    @FXML
-    void deluxeButtonClick(ActionEvent event) {
-        //
-    }
-
-    @FXML
-    void enterNumberButtonClick(ActionEvent event) {
-        if (numberChecker()) {
-            numberEnter.setPromptText("xxxxxxxxxx");
-            numberEnter.clear();
-            enterNumberText.setVisible(false);
-            workingText.setVisible(true);
-            //create new order w that number
-        }
-    }
-
-    @FXML
-    void hawaiianButtonClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void manageStoreOrdersClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void pepperoniButtonClick(ActionEvent event) {
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
     }
 
 }
