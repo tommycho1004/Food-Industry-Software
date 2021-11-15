@@ -1,17 +1,30 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainMenuController implements Initializable {
+
+    Stage stage;
+
+    public MainMenuController() throws IOException {
+        FXMLLoader pizzaCustom = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
+        Parent root = (Parent) pizzaCustom.load();
+        PizzaCustomizationController pizzaCustomizationController = pizzaCustom.getController();
+        pizzaCustomizationController.setMainMenuController(this);
+    }
 
     @FXML
     private Button checkCurrentOrder;
@@ -46,6 +59,8 @@ public class MainMenuController implements Initializable {
     @FXML
     private VBox workingText;
 
+    String pizzaType;
+
     boolean numberChecker() {
         String phone = numberEnter.getText();
         if (!phone.isEmpty()) {
@@ -71,8 +86,11 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
-    void checkCurrentOrderClick(ActionEvent event) {
-
+    void checkCurrentOrderClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("CurrentOrderView.fxml"));
+        stage.setTitle("Current Order");
+        stage.setScene(new Scene(root, 500, 500));
+        stage.show();
     }
 
     @FXML
@@ -82,7 +100,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void deluxeButtonClick(ActionEvent event) {
-        //
+        pizzaType = "D";
     }
 
     @FXML
@@ -97,19 +115,31 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
-    void hawaiianButtonClick(ActionEvent event) {
+    void hawaiianButtonClick(ActionEvent event) throws IOException {
+        pizzaType = "H";
+    }
 
+    public String getPizzaType() {
+        return pizzaType;
     }
 
     @FXML
-    void manageStoreOrdersClick(ActionEvent event) {
-
+    void manageStoreOrdersClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("StoreOrdersView.fxml"));
+        stage.setTitle("Store Orders");
+        stage.setScene(new Scene(root, 500, 500));
+        stage.show();
     }
 
     @FXML
-    void pepperoniButtonClick(ActionEvent event) {
-
+    void pepperoniButtonClick(ActionEvent event) throws IOException {
+        pizzaType = "P";
+        Parent root = FXMLLoader.load(getClass().getResource("StoreOrdersView.fxml"));
+        stage.setTitle("Store Orders");
+        stage.setScene(new Scene(root, 500, 500));
+        stage.show();
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
