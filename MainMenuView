@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainChangeSize" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MainMenuController">
+   <children>
+      <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="372.0" scaleShape="false" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="-11.0" prefHeight="200.0" prefWidth="349.0">
+               <children>
+                  <BorderPane prefHeight="115.0" prefWidth="360.0">
+                     <top>
+                        <Label text="Main Menu" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="American Typewriter" size="26.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <VBox prefHeight="93.0" prefWidth="372.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                    <Button fx:id="manageStoreOrders" alignment="CENTER" mnemonicParsing="false" onAction="#manageStoreOrdersClick" prefHeight="27.0" prefWidth="179.0" text="Manage Store Orders">
+                                       <font>
+                                          <Font name="American Typewriter" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="checkCurrentOrder" mnemonicParsing="false" onAction="#checkCurrentOrderClick" text="Check Current Order" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="American Typewriter" size="14.0" />
+                                       </font>
+                                    </Button>
+                                </items>
+                              </ToolBar>
+                              <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                 <items>
+                                    <HBox prefHeight="29.0" prefWidth="343.0">
+                                       <children>
+                                          <Button fx:id="createNewOrderButton" mnemonicParsing="false" onAction="#createNewOrderButtonClick" text="Create New Order">
+                                             <font>
+                                                <Font name="American Typewriter" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="40.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <MenuButton mnemonicParsing="false" text="Add Pizza">
+                                             <items>
+                                                <MenuItem fx:id="deluxeButton" mnemonicParsing="false" onAction="#deluxeButtonClick" text="Deluxe pizza" />
+                                                <MenuItem fx:id="hawaiianButton" mnemonicParsing="false" onAction="#hawaiianButtonClick" text="Hawaiian pizza" />
+                                                <MenuItem fx:id="pepperoniButton" mnemonicParsing="false" onAction="#pepperoniButtonClick" text="Pepperoni pizza" />
+                                             </items>
+                                             <font>
+                                                <Font name="American Typewriter" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </MenuButton>
+                                       </children>
+                                    </HBox>
+                                 </items>
+                              </ToolBar>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <VBox fx:id="workingText" layoutX="25.0" layoutY="115.0" prefHeight="58.0" prefWidth="309.0" visible="false">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="311.0" text="Working on order - ">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple LiGothic Medium" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="14.0" prefWidth="275.0" text="Use buttons to add pizza orders or check current order ">
+                           <font>
+                              <Font name="Apple LiGothic Medium" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="to place/ cancel the order">
+                           <font>
+                              <Font name="Apple LiGothic Medium" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <VBox fx:id="enterNumberText" layoutX="1.0" layoutY="112.0" prefHeight="75.0" prefWidth="349.0" visible="false">
+               <children>
+                  <Label text="Enter Phone Number Associated with Order:">
+                     <padding>
+                        <Insets left="15.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="numberEnter" prefHeight="26.0" prefWidth="233.0" promptText="xxxxxxxxxx">
+                           <HBox.margin>
+                              <Insets left="15.0" top="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button fx:id="enterNumberButton" mnemonicParsing="false" onAction="#enterNumberButtonClick" text="Enter">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
