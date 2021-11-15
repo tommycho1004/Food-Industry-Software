@@ -63,7 +63,7 @@ public class MainMenuController implements Initializable {
         String phone = numberEnter.getText();
         if (!phone.isEmpty()) {
             try {
-                int phoneNum = Integer.parseInt(numberEnter.getText());
+                Long phoneNum = Long.parseLong(numberEnter.getText());
             } catch (NumberFormatException e) {
                 numberEnter.setPromptText("Not a valid number");
                 numberEnter.clear();
@@ -86,6 +86,7 @@ public class MainMenuController implements Initializable {
     @FXML
     void checkCurrentOrderClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("CurrentOrderView.fxml"));
+        Stage stage = new Stage();
         stage.setTitle("Current Order");
         stage.setScene(new Scene(root, 500, 500));
         stage.show();
@@ -125,6 +126,7 @@ public class MainMenuController implements Initializable {
     @FXML
     void manageStoreOrdersClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("StoreOrdersView.fxml"));
+        Stage stage = new Stage();
         stage.setTitle("Store Orders");
         stage.setScene(new Scene(root, 500, 500));
         stage.show();
