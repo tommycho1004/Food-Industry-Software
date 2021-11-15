@@ -1,4 +1,4 @@
-package sample;
+package com.example.demo;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -21,7 +21,7 @@ public class StoreOrders {
      *
      * @param order order that is being added
      */
-    private void addOrder(Order order) {
+    public void addOrder(Order order) {
         orders.add(order);
     }
 
@@ -30,7 +30,7 @@ public class StoreOrders {
      *
      * @param orderIndex index of the order being removed in the list
      */
-    private void removeOrder(int orderIndex) {
+    public void removeOrder(int orderIndex) {
         if (orders.isEmpty()) {
             System.out.println("There are no orders to show!");
         } else {
@@ -44,7 +44,7 @@ public class StoreOrders {
      *
      * @return list of orders in String form
      */
-    private String printOrders() {
+    public String printOrders() {
         DecimalFormat dec = new DecimalFormat("#0.00");
         dec.setGroupingUsed(true);
         dec.setGroupingSize(3);
@@ -57,7 +57,7 @@ public class StoreOrders {
         return str.toString();
     }
 
-    private void export() {
+    public void export() {
         File myObj = new File("StoreOrders.txt");
         try {
             FileWriter myWriter = new FileWriter("filename.txt");
