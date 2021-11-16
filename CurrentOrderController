@@ -23,6 +23,10 @@ public class CurrentOrderController {
     @FXML
     private TextField number;
 
+    /**
+     * Getter for the text field number
+     * @return the text field number
+     */
     public TextField getNumber() {
         return number;
     }
@@ -42,9 +46,12 @@ public class CurrentOrderController {
     @FXML
     private TextField subtotal;
 
+    /**
+     * Method to handle the add order button. 
+     * @param event event where add order button is clicked
+     */
     @FXML
     void addOrderClick(ActionEvent event) {
-
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("StoreOrdersView.fxml"));
@@ -63,6 +70,10 @@ public class CurrentOrderController {
         }
     }
 
+    /**
+     * Method to handle the remove pizza button click
+     * @param event event where remove pizza button is clicked
+     */
     @FXML
     void removePizzaClick(ActionEvent event) {
         currentOrder.removePizza(ordersList.getSelectionModel().getSelectedIndex());
