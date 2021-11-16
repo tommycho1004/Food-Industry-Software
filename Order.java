@@ -11,15 +11,29 @@ import java.util.ArrayList;
  */
 public class Order {
 
-    private Long phoneNumber;
+    private String phoneNumber;
     private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
 
+    /**
+     * No argument constructor for Order
+     */
+    public Order(){
+        //empty constructor
+    }
+
+    /**
+     * Constructor for Order with phonenumber
+     * @param phoneNumber phone number that relates to the order
+     */
+    public Order(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
     /**
      * Setter method for phone number
      *
      * @param phoneNumber number that is being set
      */
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -28,10 +42,14 @@ public class Order {
      *
      * @return phone number of instance
      */
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
+    /**
+     * Getter method for pizza list
+     * @return list of pizzas
+     */
     public ArrayList<Pizza> getPizzas() {
         return this.pizzas;
     }
@@ -52,12 +70,7 @@ public class Order {
      * @param pizzaIndex index at which the pizza being removed is found
      */
     public void removePizza(int pizzaIndex) {
-        if (pizzas.isEmpty()) {
-            System.out.println("Order is empty!");
-        } else {
             pizzas.remove(pizzaIndex);
-            System.out.println("Pizza removed");
-        }
     }
 
     /**
@@ -107,9 +120,9 @@ public class Order {
         return str.toString();
     }
 
-    public static void main(String[] args) { //testbed main
+    /*public static void main(String[] args) { //testbed main
         Order test = new Order(); //create new order
-        test.setPhoneNumber(7323369471L); //set phone number identifier
+        test.setPhoneNumber("7323369471"); //set phone number identifier
         Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
         System.out.println(pizza1.printPizza()); //default pizza
         pizza1.addTopping("Pineapple"); //add pineapple topping
@@ -137,5 +150,5 @@ public class Order {
         System.out.println(test.printOrder()); //print order
         test.removePizza(2); //remove pizza3 from order
         System.out.println(test.printOrder()); //print order
-    }
+    }*/
 }
