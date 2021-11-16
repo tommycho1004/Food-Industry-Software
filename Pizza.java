@@ -54,14 +54,12 @@ public abstract class Pizza {
 
         if (this.toppings.size() < 7) {
             if (this.toppings.contains(toppingConverter(topping))) {
-                //System.out.println("Topping is already included!");
+                //topping contained already
             } else {
                 this.toppings.add(toppingConverter(topping));
-                //price = price + toppingIncrement;
-                //System.out.println("Topping added");
             }
         } else {
-            //System.out.println("Maximum number of toppings reached!");
+            //max number of toppings reached
         }
     }
 
@@ -73,10 +71,28 @@ public abstract class Pizza {
      * @param topping topping that is being removed.
      */
     public void removeTopping(String topping) {
-        if (!this.toppings.isEmpty() && !this.toppings.contains(toppingConverter(topping))) {
+        if (this.toppings.isEmpty()) {
+            //no toppings on the pizza
+        } else if (!this.toppings.contains(toppingConverter(topping))) {
+            //topping not on the pizza
+        } else {
             this.toppings.remove(toppingConverter(topping));
-            //price = price - toppingIncrement;
-            //System.out.println("Topping removed");
+        }
+    }
+
+    /**
+     * Method to set size of pizza
+     * @param size size being set  (Small, Medium, Large)
+     */
+    public void setSize(String size){
+        if (size.equals("Small")){
+            this.size = Size.Small;
+        }
+        else if (size.equals("Medium")){
+            this.size = Size.Medium;
+        }
+        else{
+            this.size = Size.Large;
         }
     }
 
@@ -140,7 +156,7 @@ public abstract class Pizza {
             this.size = Size.Large;
             //price = price + sizeIncrement;
         } else {
-            System.out.println("This is the maximum size!");
+            //maximum size reached
         }
     }
 
@@ -156,7 +172,7 @@ public abstract class Pizza {
             this.size = Size.Small;
             //price = price - sizeIncrement;
         } else {
-            System.out.println("This is the minimum size!");
+            //minimum size reached
         }
     }
 }
