@@ -5,13 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 
 import java.text.DecimalFormat;
 
 public class StoreOrdersController {
 
     StoreOrders storeOrderList = new StoreOrders();
+
+    public StoreOrders getStoreOrderList() {
+        return storeOrderList;
+    }
 
     private ObservableList<String> items = FXCollections.observableArrayList();
 
@@ -79,6 +82,15 @@ public class StoreOrdersController {
 
     @FXML
     void updateOrders(ActionEvent event) {
+        Order testOrder = new Order();
+        Order testOrder2 = new Order();
+        testOrder2.setPhoneNumber("2016003382");
+        testOrder.setPhoneNumber("7323369471");
+        testOrder.addPizza(PizzaMaker.createPizza("Pepperoni"));
+        testOrder.addPizza(PizzaMaker.createPizza("Deluxe"));
+        storeOrderList.addOrder(testOrder);
+        testOrder2.addPizza(PizzaMaker.createPizza("Hawaiian"));
+        storeOrderList.addOrder(testOrder2);
         items.clear();
         for (int i = 0; i < storeOrderList.getOrders().size(); i++){
             items.add(storeOrderList.getOrders().get(i).getPhoneNumber());
