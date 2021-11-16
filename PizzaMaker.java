@@ -1,4 +1,4 @@
-package sample;
+package com.example.demo;
 
 /**
  * The PizzaMaker class that instantiates a pizza depending on a chosen flavor
