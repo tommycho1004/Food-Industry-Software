@@ -1,4 +1,4 @@
-package sample;
+package com.example.demo;
 
 /**
  * The Size enum class that holds the three sizes of pizza.
