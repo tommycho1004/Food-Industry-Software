@@ -40,10 +40,9 @@ public class StoreOrders {
      */
     public void removeOrder(Order order) {
         if (orders.isEmpty()) {
-            System.out.println("There are no orders to show!");
+            //no orders to show
         } else {
             orders.remove(order);
-            System.out.println("Order cancelled.");
         }
     }
 
