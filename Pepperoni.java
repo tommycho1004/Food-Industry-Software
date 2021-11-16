@@ -1,4 +1,4 @@
-package sample;
+package com.example.demo;
 
 import java.lang.StringBuilder;
 import java.text.DecimalFormat;
@@ -59,7 +59,7 @@ public class Pepperoni extends Pizza {
     }
 
     public static void main(String[] args) { //testbed main
-        Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
+        /*Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
         System.out.println(pizza1.printPizza()); //default pizza
         pizza1.addTopping("Pineapple"); //add pineapple topping
         pizza1.addTopping("Pineapple"); //add pineapple topping (should return error msg)
@@ -77,6 +77,6 @@ public class Pepperoni extends Pizza {
         pizza1.removeTopping("Pepperoni"); //remove pepperoni
         System.out.println(pizza1.printPizza()); //print small pepperoni pizza without pepperoni but same base price
         pizza1.addTopping("Pepperoni"); //add pepperoni
-        System.out.println(pizza1.showAvailableToppings()); //shows available toppings for pizza (should be all but pepperoni)
+        System.out.println(pizza1.showAvailableToppings()); //shows available toppings for pizza (should be all but pepperoni)*/
     }
 }
