@@ -17,6 +17,14 @@ public class StoreOrders {
     private ArrayList<Order> orders = new ArrayList<Order>();
 
     /**
+     * Getter method for order list
+     * @return list of orders
+     */
+    public ArrayList<Order> getOrders() {
+        return this.orders;
+    }
+
+    /**
      * A method to add an order to the list of orders
      *
      * @param order order that is being added
@@ -28,16 +36,31 @@ public class StoreOrders {
     /**
      * A method to remove an order from the list of orders
      *
-     * @param orderIndex index of the order being removed in the list
+     * @param order the order being removed in the list
      */
-    public void removeOrder(int orderIndex) {
+    public void removeOrder(Order order) {
         if (orders.isEmpty()) {
             System.out.println("There are no orders to show!");
         } else {
-            orders.remove(orderIndex);
+            orders.remove(order);
             System.out.println("Order cancelled.");
         }
     }
+
+    /**
+     * A method to find a specific order in the list of orders given a phone number
+     * @param phoneNumber phone number being found
+     * @return true if order is found, false otherwise
+     */
+    public Order findOrder(String phoneNumber){
+        for (int i = 0; i < orders.size(); i++){
+            if (orders.get(i).getPhoneNumber().equals(phoneNumber)){
+                return orders.get(i);
+            }
+        }
+        return null;
+    }
+
 
     /**
      * A method to print the orders in the list.
@@ -60,7 +83,7 @@ public class StoreOrders {
     public void export() {
         File myObj = new File("StoreOrders.txt");
         try {
-            FileWriter myWriter = new FileWriter("filename.txt");
+            FileWriter myWriter = new FileWriter("StoreOrders.txt");
             myWriter.write(this.printOrders());
             myWriter.close();
         } catch (IOException e) {
@@ -71,7 +94,7 @@ public class StoreOrders {
 
     public static void main(String[] args) { //testbed main
         Order order1 = new Order(); //create new order
-        order1.setPhoneNumber(7323369471L); //set phone number identifier
+        order1.setPhoneNumber("7323369471"); //set phone number identifier
         Pizza pizza1 = PizzaMaker.createPizza("Pepperoni"); //create new pepperoni pizza
         System.out.println(pizza1.printPizza()); //default pizza
         pizza1.addTopping("Pineapple"); //add pineapple topping
@@ -101,7 +124,7 @@ public class StoreOrders {
         System.out.println(order1.printOrder()); //print order
         //break
         Order order2 = new Order(); //make new example order
-        order2.setPhoneNumber(2016003382L);
+        order2.setPhoneNumber("2016003382");
         Pizza pizza4 = PizzaMaker.createPizza("Pepperoni");
         pizza4.addTopping("Onions");
         pizza4.increaseSize();
@@ -116,7 +139,7 @@ public class StoreOrders {
         test.addOrder(order1);
         test.addOrder(order2);
         System.out.println(test.printOrders());
-        test.removeOrder(0);
+        test.removeOrder(order1);
         System.out.println(test.printOrders());
         test.export();
     }
