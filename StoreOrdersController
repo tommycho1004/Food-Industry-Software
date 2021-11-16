@@ -1,13 +1,19 @@
 package com.example.demo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+
+import java.text.DecimalFormat;
 
 public class StoreOrdersController {
+
+    StoreOrders storeOrderList = new StoreOrders();
+
+    private ObservableList<String> items = FXCollections.observableArrayList();
 
     @FXML
     private Button cancelOrderButton;
@@ -19,19 +25,64 @@ public class StoreOrdersController {
     private TextField orderTotal;
 
     @FXML
-    private MenuButton phoneMenu;
+    private ComboBox<String> phoneMenu;
 
     @FXML
-    private ListView<?> storeOrdersList;
+    private ListView<String> storeOrdersList;
+
+    @FXML
+    private Button updateButton;
+
 
     @FXML
     void cancelOrderButtonClick(ActionEvent event) {
+        String selected = phoneMenu.getSelectionModel().getSelectedItem();
+        try{
+            storeOrderList.removeOrder(storeOrderList.findOrder(selected));
+            items.clear();
+            for (int i = 0; i < storeOrderList.getOrders().size(); i++){
+                items.add(storeOrderList.getOrders().get(i).getPhoneNumber());
+            }
+            phoneMenu.setItems(items);
+        }
+        catch (Exception e){
+            storeOrdersList.getItems().add("");
+        }
 
     }
 
     @FXML
     void exportOrdersClick(ActionEvent event) {
+        storeOrderList.export();
+    }
+
+    @FXML
+    void selectPhoneNumber(ActionEvent event) {
+        storeOrdersList.getItems().clear();
+        DecimalFormat dec = new DecimalFormat("#0.00");
+        dec.setGroupingUsed(true);
+        dec.setGroupingSize(3);
+        try{
+            String selected = phoneMenu.getSelectionModel().getSelectedItem();
+            for (int i = 0; i < storeOrderList.findOrder(selected).getPizzas().size(); i++){
+                storeOrdersList.getItems().add(storeOrderList.findOrder(selected).getPizzas().get(i).printPizza());
+            }
+            orderTotal.clear();
+            orderTotal.appendText(dec.format(storeOrderList.findOrder(selected).getGrandTotal()));
+        }
+        catch (Exception e){
+            storeOrdersList.getItems().add("");
+        }
+
 
     }
 
+    @FXML
+    void updateOrders(ActionEvent event) {
+        items.clear();
+        for (int i = 0; i < storeOrderList.getOrders().size(); i++){
+            items.add(storeOrderList.getOrders().get(i).getPhoneNumber());
+        }
+        phoneMenu.setItems(items);
+    }
 }
