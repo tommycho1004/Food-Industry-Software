@@ -65,13 +65,9 @@
                         </ListView>
                         <HBox prefHeight="75.0" prefWidth="600.0">
                             <children>
-                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateOrders" text="Press to Update Store Orders">
-                           <HBox.margin>
-                              <Insets left="80.0" top="20.0" />
-                           </HBox.margin></Button>
                                 <Button fx:id="cancelOrderButton" mnemonicParsing="false" onAction="#cancelOrderButtonClick" text="Cancel Order">
                                     <HBox.margin>
-                                        <Insets left="20.0" top="20.0" />
+                                        <Insets left="170.0" top="20.0" />
                                     </HBox.margin>
                                     <font>
                                         <Font name="American Typewriter" size="13.0" />
