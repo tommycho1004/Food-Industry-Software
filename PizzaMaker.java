@@ -20,27 +20,15 @@ public class PizzaMaker {
      * @param flavor flavor of pizza being created
      * @return pizza that was made
      */
-    public static Pizza createPizza(String flavor) {
-        if (flavor.equals("Pepperoni") || flavor.equals("pepperoni")) {
-            Pepperoni pizza = new Pepperoni();
-            pizza.addTopping("Pepperoni");
-            pizza.size = Size.Small;
-            return pizza;
-        } else if (flavor.equals("Hawaiian") || flavor.equals("hawaiian")) {
-            Hawaiian pizza = new Hawaiian();
-            pizza.addTopping("Ham");
-            pizza.addTopping("Pineapple");
-            pizza.size = Size.Small;
-            return pizza;
-        } else { //if (flavor.equals("Deluxe") || flavor.equals("deluxe"))
-            Deluxe pizza = new Deluxe();
-            pizza.addTopping("Sausage");
-            pizza.addTopping("Pepperoni");
-            pizza.addTopping("Mushrooms");
-            pizza.addTopping("Onions");
-            pizza.addTopping("Peppers");
-            pizza.size = Size.Small;
-            return pizza;
+    public static Pizza createPizza(String flavor){
+        if (flavor.equals("Pepperoni")){
+            return new Pepperoni();
+        }
+        else if (flavor.equals("Hawaiian")){
+            return new Hawaiian();
+        }
+        else{
+            return new Deluxe();
         }
     }
 }
