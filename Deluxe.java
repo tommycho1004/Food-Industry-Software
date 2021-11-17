@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.lang.StringBuilder;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * The Deluxe class that extends the Pizza class and holds relevant information for deluxe pizzas.
@@ -12,9 +13,24 @@ public class Deluxe extends Pizza {
 
     private static final double deluxeBasePrice = 12.99;
     private static final int deluxeBaseToppings = 5;
-    //constants for price adjustments
-    protected static final double sizeIncrement = 2.0;
-    protected static final double toppingIncrement = 1.49;
+
+    /**
+     *The default constructor for a deluxe pizza
+     */
+    public Deluxe(){
+        this.toppings = new ArrayList<Topping>();
+        this.size = Size.Small;
+    }
+
+    /**
+     * The parameterized constructor for a deluxe pizza
+     * @param toppings topping list of pizza
+     * @param size size of pizza
+     */
+    public Deluxe(ArrayList<Topping> toppings, Size size){
+        this.toppings = toppings;
+        this.size = size;
+    }
 
     /**
      * The method to determine the price of a deluxe pizza.
@@ -40,7 +56,7 @@ public class Deluxe extends Pizza {
      *
      * @return the details of this deluxe pizza in String form
      */
-    public String printPizza() {
+    public String toString() {
         DecimalFormat dec = new DecimalFormat("#0.00");
         dec.setGroupingUsed(true);
         dec.setGroupingSize(3);
@@ -56,5 +72,11 @@ public class Deluxe extends Pizza {
         }
         str.append(" - Subtotal: $" + dec.format(this.price()));
         return str.toString();
+    }
+
+    @Override
+    public Pizza copy() {
+        Pizza copy = new Pepperoni(new ArrayList<Topping>(this.toppings), this.size);
+        return copy;
     }
 }
