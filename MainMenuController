@@ -100,14 +100,14 @@ public class MainMenuController {
         alert.setTitle("Pizza Maker");
         alert.setContentText("Ordering a Pepperoni Pizza");
         alert.showAndWait();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomizationView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com/example/demo/PizzaCustomizationView.fxml"));
         Parent root = loader.load();
         PizzaCustomizationController pizzaCustomizer = loader.getController();
         pizzaCustomizer.setMainController(this);
 
         Image pizzaImage = new Image("file:./pepperoni.jpg");
         ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.Pepperoni);
-        pizzaCustomizer.setDefaultValues(pizzaImage, "Deluxe", toppings);
+        pizzaCustomizer.setDefaultValues(pizzaImage, "Pepperoni", toppings);
         Stage stage = new Stage();
         Scene scene = new Scene(root, 1280, 800);
         stage.setTitle("Pizza Customizer");
@@ -128,14 +128,14 @@ public class MainMenuController {
         alert.setTitle("Pizza Maker");
         alert.setContentText("Ordering a Hawaiian Pizza");
         alert.showAndWait();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomizationView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com/example/demo/PizzaCustomizationView.fxml"));
         Parent root = loader.load();
         PizzaCustomizationController pizzaCustomizer = loader.getController();
         pizzaCustomizer.setMainController(this);
 
         Image pizzaImage = new Image("file:./hawaiian.jpg");
         ObservableList<Topping> toppings = FXCollections.observableArrayList(Topping.Ham, Topping.Pineapple);
-        pizzaCustomizer.setDefaultValues(pizzaImage, "Deluxe", toppings);
+        pizzaCustomizer.setDefaultValues(pizzaImage, "Hawaiian", toppings);
         Stage stage = new Stage();
         Scene scene = new Scene(root, 1280, 800);
         stage.setTitle("Pizza Customizer");
@@ -156,12 +156,11 @@ public class MainMenuController {
         alert.setTitle("Pizza Maker");
         alert.setContentText("Ordering a Deluxe Pizza");
         alert.showAndWait();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PizzaCustomizationView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com/example/demo/PizzaCustomizationView.fxml"));
         Parent root = loader.load();
         PizzaCustomizationController pizzaCustomizer = loader.getController();
         pizzaCustomizer.setMainController(this);
-
-        Image pizzaImage = new Image("file:./deluxe.jpg");
+        Image pizzaImage = new Image("file:./deluxe.jpeg");
         ObservableList<Topping> toppings = FXCollections.observableArrayList(
                 Topping.Sausage, Topping.Peppers, Topping.Onions, Topping.Mushrooms, Topping.Pepperoni);
         pizzaCustomizer.setDefaultValues(pizzaImage, "Deluxe", toppings);
@@ -195,7 +194,7 @@ public class MainMenuController {
             alert.showAndWait();
             return;
         }
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentOrderView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com/example/demo/CurrentOrderView.fxml"));
         Parent root = loader.load();
         CurrentOrderController currentOrderView = loader.getController();
         currentOrderView.setMainController(this);
@@ -219,7 +218,7 @@ public class MainMenuController {
      */
     @FXML
     void manageStoreOrdersClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("StoreOrdersView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com/example/demo/StoreOrdersView.fxml"));
         Parent root = loader.load();
         StoreOrdersController storeOrderView = loader.getController();
         storeOrderView.setMainController(this);
