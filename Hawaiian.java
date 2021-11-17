@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.lang.StringBuilder;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * The Hawaiian class that extends the Pizza class and holds relevant information for hawaiian pizzas.
@@ -12,9 +13,24 @@ public class Hawaiian extends Pizza {
 
     private static final double hawaiianBasePrice = 10.99;
     private static final int hawaiianBaseToppings = 2;
-    //constants for price adjustments
-    protected static final double sizeIncrement = 2.0;
-    protected static final double toppingIncrement = 1.49;
+
+    /**
+     *The default constructor for a hawaiian pizza
+     */
+    public Hawaiian(){
+        this.toppings = new ArrayList<Topping>();
+        this.size = Size.Small;
+    }
+
+    /**
+     * The parameterized constructor for a hawaiian pizza
+     * @param toppings topping list of pizza
+     * @param size size of pizza
+     */
+    public Hawaiian(ArrayList<Topping> toppings, Size size){
+        this.toppings = toppings;
+        this.size = size;
+    }
 
     /**
      * The method to determine the price of a hawaiian pizza.
@@ -40,7 +56,7 @@ public class Hawaiian extends Pizza {
      *
      * @return the details of this hawaiian pizza in String form
      */
-    public String printPizza() {
+    public String toString() {
         DecimalFormat dec = new DecimalFormat("#0.00");
         dec.setGroupingUsed(true);
         dec.setGroupingSize(3);
@@ -56,6 +72,12 @@ public class Hawaiian extends Pizza {
         }
         str.append(" - Subtotal: $" + dec.format(this.price()));
         return str.toString();
+    }
+
+    @Override
+    public Pizza copy() {
+        Pizza copy = new Pepperoni(new ArrayList<Topping>(this.toppings), this.size);
+        return copy;
     }
 
 }
