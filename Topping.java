@@ -1,6 +1,4 @@
-package sample;
-
-import java.util.ArrayList;
+package com.example.demo;
 
 /**
  * The Topping enum class that holds all the toppings possible for a pizza.
@@ -9,7 +7,7 @@ import java.util.ArrayList;
  */
 
 public enum Topping {
-    Pepperoni, Pineapple, Ham, Sausage, Peppers, Onions, Mushrooms, Chicken, Invalid;
+    Pepperoni, Pineapple, Ham, Sausage, Peppers, Onions, Mushrooms, Chicken;
 
     /**
      * To string method for the topping class
